@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SpriteRotate</name>
+    </assembly>
+    <members>
+        <member name="T:XNAExtras.BitmapFont">
+            <summary>
+            Bitmap font class for XNA
+            </summary>
+        </member>
+        <member name="F:XNAExtras.BitmapFont.m_dictBitmapFonts">
+            <summary>
+            A dictionary of all currently defined fonts
+            </summary>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.#ctor(System.String)">
+            <summary>
+            Create a new font from the info in the specified font descriptor (XML) file
+            </summary>
+            <param name="strFontFilename">Font descriptor file (.xml)</param>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.#ctor(Microsoft.Xna.Framework.Content.ContentManager,System.String)">
+            <summary>
+            Create a new font from the info in the specified font descriptor (XML) file
+            </summary>
+            <param name="cm">Content manager</param>
+            <param name="strFontFilename">Font descriptor file (.xml)</param>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.Finalize">
+            <summary>
+            Destructor for BitmapFont. Remove font from list of active fonts.
+            </summary>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.Dispose">
+            <summary>
+            Dispose of all of the non-managed resources for this object
+            </summary>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.Reset(Microsoft.Xna.Framework.Graphics.GraphicsDevice)">
+            <summary>
+            Reset the font when the device has changed
+            </summary>
+            <param name="device">The new device</param>
+        </member>
+        <member name="F:XNAExtras.BitmapFont.m_fKern">
+            <summary>
+            Should we kern adjacent characters?
+            </summary>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.MeasureString(System.String,System.Object[])">
+            <summary>
+            Calculate the width of the given string.
+            </summary>
+            <param name="format">String format</param>
+            <param name="args">String format arguments</param>
+            <returns>Width (in pixels) of the string</returns>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.CountCharWidth(System.Int32,System.String,System.Int32@,System.Int32@)">
+            <summary>
+            Calculate the number of characters that fit in the given width.
+            </summary>
+            <param name="pxMaxWidth">Maximum string width</param>
+            <param name="str">String</param>
+            <param name="nChars">Number of characters that fit</param>
+            <param name="pxWidth">Width of substring</param>
+        </member>
+        <member name="F:XNAExtras.BitmapFont.m_vPen">
+            <summary>
+            Current pen position
+            </summary>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.SetPen(System.Int32,System.Int32)">
+            <summary>
+            Set the current pen position
+            </summary>
+            <param name="x">X-coord</param>
+            <param name="y">Y-coord</param>
+        </member>
+        <member name="F:XNAExtras.BitmapFont.m_color">
+            <summary>
+            Current color used for drawing text
+            </summary>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.DrawString(System.Int32,System.Int32,System.String,System.Object[])">
+            <summary>
+            Draw the given string at (x,y).
+            The text color is inherited from the last draw command (default=White).
+            </summary>
+            <param name="x">X-coord</param>
+            <param name="y">Y-coord</param>
+            <param name="format">String format</param>
+            <param name="args">String format args</param>
+            <returns>Width of string (in pixels)</returns>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.DrawString(System.Int32,System.Int32,Microsoft.Xna.Framework.Graphics.Color,System.String,System.Object[])">
+            <summary>
+            Draw the given string at (x,y) using the specified color
+            </summary>
+            <param name="x">X-coord</param>
+            <param name="y">Y-coord</param>
+            <param name="color">Text color</param>
+            <param name="format">String format</param>
+            <param name="args">String format args</param>
+            <returns>Width of string (in pixels)</returns>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.DrawString(Microsoft.Xna.Framework.Graphics.Color,System.String,System.Object[])">
+            <summary>
+            Draw the given string using the specified color.
+            The text drawing location is immediately after the last drawn text (default=0,0).
+            </summary>
+            <param name="color">Text color</param>
+            <param name="format">String format</param>
+            <param name="args">String format args</param>
+            <returns>Width of string (in pixels)</returns>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.DrawString(System.String,System.Object[])">
+            <summary>
+            Draw the given string at (x,y).
+            The text drawing location is immediately after the last drawn text (default=0,0).
+            The text color is inherited from the last draw command (default=White).
+            </summary>
+            <param name="format">String format</param>
+            <param name="args">String format args</param>
+            <returns>Width of string (in pixels)</returns>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.DrawString(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Graphics.Color,System.String,System.Object[])">
+            <summary>
+            Draw the given string at vOrigin using the specified color
+            </summary>
+            <param name="vAt">(x,y) coord</param>
+            <param name="cText">Text color</param>
+            <param name="strFormat">String format</param>
+            <param name="args">String format args</param>
+            <returns>Width of string (in pixels)</returns>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.DrawString_internal(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Graphics.Color,System.String)">
+            <summary>
+            Private version of DrawString that expects the string to be formatted already
+            </summary>
+            <param name="vAt">(x,y) coord</param>
+            <param name="cText">Text color</param>
+            <param name="str">String</param>
+            <returns>Width of string (in pixels)</returns>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.CalcKern(System.Char,System.Char)">
+            <summary>
+            Get the kern value for the given pair of characters
+            </summary>
+            <param name="chLeft">Left character</param>
+            <param name="chRight">Right character</param>
+            <returns>Amount to kern (in pixels)</returns>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.TextBox(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Graphics.Color,System.String,System.Object[])">
+            <summary>
+            Draw text formatted to fit in the specified rectangle
+            </summary>
+            <param name="r">The rectangle to fit the text</param>
+            <param name="cText">Text color</param>
+            <param name="strFormat">String format</param>
+            <param name="args">String format args</param>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.SaveState(XNAExtras.BitmapFont.SaveStateInfo@)">
+            <summary>
+            Save the current font rendering state
+            </summary>
+            <param name="bfss">Struct to store the save state</param>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.RestoreState(XNAExtras.BitmapFont.SaveStateInfo)">
+            <summary>
+            Restore the font rendering state
+            </summary>
+            <param name="bfss">Previously saved font state</param>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.SpriteBatchOverride(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Temporarily override the font's SpriteBatch with the given SpriteBatch.
+            </summary>
+            <param name="sb">The new SpriteBatch (or null to reset)</param>
+            <remarks>
+            When drawing text using the SpriteBatch override, Begin/End will not be called on the SpriteBatch.
+            Use null to reset back to the font's original SpriteBatch.
+            </remarks>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.GetNamedFont(System.String)">
+            <summary>
+            Return the font associated with the given name.
+            </summary>
+            <param name="strName">Name of the font</param>
+            <returns>The font</returns>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.LoadFontXML(System.Xml.XmlNodeList)">
+            <summary>
+            Load the font data from an XML font descriptor file
+            </summary>
+            <param name="xnl">XML node list containing the entire font descriptor file</param>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.LoadFontXML_font(System.Xml.XmlNodeList)">
+            <summary>
+            Load the data from the "font" node
+            </summary>
+            <param name="xnl">XML node list containing the "font" node's children</param>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.LoadFontXML_bitmaps(System.Xml.XmlNodeList)">
+            <summary>
+            Load the data from the "bitmaps" node
+            </summary>
+            <param name="xnl">XML node list containing the "bitmaps" node's children</param>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.LoadFontXML_glyphs(System.Xml.XmlNodeList)">
+            <summary>
+            Load the data from the "glyphs" node
+            </summary>
+            <param name="xnl">XML node list containing the "glyphs" node's children</param>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.LoadFontXML_kernpairs(System.Xml.XmlNodeList)">
+            <summary>
+            Load the data from the "kernpairs" node
+            </summary>
+            <param name="xnl">XML node list containing the "kernpairs" node's children</param>
+        </member>
+        <member name="M:XNAExtras.BitmapFont.GetXMLAttribute(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get the XML attribute value
+            </summary>
+            <param name="n">XML node</param>
+            <param name="strAttr">Attribute name</param>
+            <returns>Attribute value, or the empty string if the attribute doesn't exist</returns>
+        </member>
+        <member name="P:XNAExtras.BitmapFont.Name">
+            <summary>
+            The name of this font
+            </summary>
+        </member>
+        <member name="P:XNAExtras.BitmapFont.Filename">
+            <summary>
+            The name of the font file
+            </summary>
+        </member>
+        <member name="P:XNAExtras.BitmapFont.KernEnable">
+            <summary>
+            Enable/disable kerning
+            </summary>
+        </member>
+        <member name="P:XNAExtras.BitmapFont.Baseline">
+            <summary>
+            Distance from top of font to the baseline
+            </summary>
+        </member>
+        <member name="P:XNAExtras.BitmapFont.LineHeight">
+            <summary>
+            Distance from top to bottom of the font
+            </summary>
+        </member>
+        <member name="P:XNAExtras.BitmapFont.Depth">
+            <summary>
+            The depth at which to draw the font
+            </summary>
+        </member>
+        <member name="P:XNAExtras.BitmapFont.Alignment">
+            <summary>
+            The text alignment. This is only used by the TextBox routines
+            </summary>
+        </member>
+        <member name="P:XNAExtras.BitmapFont.Pen">
+            <summary>
+            Current pen position
+            </summary>
+        </member>
+        <member name="P:XNAExtras.BitmapFont.TextColor">
+            <summary>
+            Current color used for drawing text
+            </summary>
+        </member>
+        <member name="T:XNAExtras.BitmapFont.SaveStateInfo">
+            <summary>
+            Save font rendering state so that it can be saved/restored
+            </summary>
+        </member>
+        <member name="T:XNAExtras.BitmapFont.GlyphInfo">
+            <summary>
+            Info for each glyph in the font - where to find the glyph image and 
+            other properties
+            </summary>
+        </member>
+        <member name="T:XNAExtras.BitmapFont.BitmapInfo">
+            <summary>
+            Info for each font bitmap
+            </summary>
+        </member>
+        <member name="M:SpriteRotate.Program.Main(System.String[])">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:SpriteRotate.Game1">
+            <summary>
+            This is the main type for your game
+            </summary>
+        </member>
+        <member name="M:SpriteRotate.Game1.Initialize">
+            <summary>
+            Allows the game to perform any initialization it needs to before starting to run.
+            This is where it can query for any required services and load any non-graphic
+            related content.  Calling base.Initialize will enumerate through any components
+            and initialize them as well.
+            </summary>
+        </member>
+        <member name="M:SpriteRotate.Game1.LoadGraphicsContent(System.Boolean)">
+            <summary>
+            Load your graphics content.  If loadAllContent is true, you should
+            load content from both ResourceManagementMode pools.  Otherwise, just
+            load ResourceManagementMode.Manual content.
+            </summary>
+            <param name="loadAllContent">Which type of content to load.</param>
+        </member>
+        <member name="M:SpriteRotate.Game1.UnloadGraphicsContent(System.Boolean)">
+            <summary>
+            Unload your graphics content.  If unloadAllContent is true, you should
+            unload content from both ResourceManagementMode pools.  Otherwise, just
+            unload ResourceManagementMode.Manual content.  Manual content will get
+            Disposed by the GraphicsDevice during a Reset.
+            </summary>
+            <param name="unloadAllContent">Which type of content to unload.</param>
+        </member>
+        <member name="M:SpriteRotate.Game1.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Allows the game to run logic such as updating the world,
+            checking for collisions, gathering input and playing audio.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>       
+        </member>
+        <member name="M:SpriteRotate.Game1.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            This is called when the game should draw itself.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="M:SpriteRotate.Game1.StartGame">
+            <summary>
+            This is called when the game is first started, and every time the player Restarts (after killing off all of their lives)
+            </summary>
+        </member>
+        <member name="M:SpriteRotate.Game1.NextWaveofBadGuys(System.Int32)">
+            <summary>
+            This method increases the Difficulty on each new wave of enemies and adds new enemies based on the current "waveAmount"
+            (which is steadily increased in IncreaseDifficulty()
+            </summary>
+            <param name="elapsedTime"></param>
+        </member>
+        <member name="M:SpriteRotate.Game1.IncreaseDifficulty">
+            <summary>
+            This slowly increases the game difficulty the longer the player is alive by increase waves of attack timing and amount
+            Bonus: player also gets improved weapon and score modifier
+            As difficulty increases, the chance that the players ammo could randomly be set to a color of one of the enemies is introduced
+            This means that whatever color ammo player is shooting will only destroy enemies of the same color (this is for a very short period, and only to keep players on their toes)
+            Enemy.BaddassRandomness = As the game gets more difficult, the chances of a Purple enemy (very fast) spawning gets greater and greater
+            </summary>
+        </member>
+        <member name="M:SpriteRotate.Game1.CheckControllerInput(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            This checks to see if the Right Stick is moved (to fire) and if the Right Bumper was pressed (to drop MegaBomb!)
+            A tiny beep (wav) is played if a shot is fired
+            </summary>
+        </member>
+        <member name="M:SpriteRotate.Game1.HandleProjectiles">
+            <summary>
+            This loops through every shot in the ArrayList and checks to see if contact with an enemy occurred.
+            If so KillEnemy is called passing the current enemy that needs to be destroyed
+            </summary>
+        </member>
+        <member name="M:SpriteRotate.Game1.DropTheBomb">
+            <summary>
+            This uses one of the players megaBombs to destroy every enemy on the screen.  
+            It adds 1 projectile (off screen), flags every currently living enemy as no longer living, and deducts 1 from the players maxBombs property
+            </summary>
+        </member>
+        <member name="M:SpriteRotate.Game1.MoveEnemies">
+            <summary>
+            This loops through every Enemy in the ArrayList and calls its UpdateMovement function (which moves the sprite)
+            (making sure to ONLY move the sprite if they player hasnt been killed)
+            </summary>
+        </member>
+        <member name="M:SpriteRotate.Game1.MoveDebris">
+            <summary>
+             This loops through every Debris in the ArrayList and calls its UpdateMovement function (which moves the sprite)
+            </summary>
+        </member>
+        <member name="M:SpriteRotate.Game1.KillEnemy(System.String,Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary>
+            Removes the enemy from the ArrayList and adds multiple new enmies slightly smaller to a Debris ArrayList (chunks of the destoryed enemy) that fly off in a star pattern
+            </summary>
+            <param name="sColor">Color of the destroyed enemy (used when spawning new debris parts that should be same color)</param>
+            <param name="position">Originating position of the "explosion" (all parts start here and work their way towards the edge of the screen)</param>
+            <param name="y">The index for the enemy that has just been killed (so it can be removed from the ArrayList)</param>
+        </member>
+        <member name="M:SpriteRotate.Game1.KillPlayer(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Similar to KillEnemy above, except this is just for the player (because he was hit by an enemy)
+            </summary>
+            <param name="position">Originating position of the "explosion" (all parts start here and work their way towards the edge of the screen)</param>
+        </member>
+    </members>
+</doc>
